@@ -1,6 +1,8 @@
 # NLP Pkgs
 import spacy 
-nlp = spacy.load('en')
+#nlp = spacy.load('en')
+nlp = spacy.load('en_core_web_sm')
+
 # Pkgs for Normalizing Text
 from spacy.lang.en.stop_words import STOP_WORDS
 from string import punctuation
@@ -14,8 +16,8 @@ def text_summarizer(raw_docx):
     docx = nlp(raw_text)
     stopwords = list(STOP_WORDS)
     # Build Word Frequency # word.text is tokenization in spacy
-    word_frequencies = {}  
-    for word in docx:  
+    word_frequencies = {}
+    for word in docx:
         if word.text not in stopwords:
             if word.text not in word_frequencies.keys():
                 word_frequencies[word.text] = 1
@@ -25,14 +27,14 @@ def text_summarizer(raw_docx):
 
     maximum_frequncy = max(word_frequencies.values())
 
-    for word in word_frequencies.keys():  
+    for word in word_frequencies.keys():
         word_frequencies[word] = (word_frequencies[word]/maximum_frequncy)
     # Sentence Tokens
     sentence_list = [ sentence for sentence in docx.sents ]
 
     # Sentence Scores
-    sentence_scores = {}  
-    for sent in sentence_list:  
+    sentence_scores = {}
+    for sent in sentence_list:
         for word in sent:
             if word.text.lower() in word_frequencies.keys():
                 if len(sent.text.split(' ')) < 30:
@@ -46,4 +48,3 @@ def text_summarizer(raw_docx):
     final_sentences = [ w.text for w in summarized_sentences ]
     summary = ' '.join(final_sentences)
     return summary
-    

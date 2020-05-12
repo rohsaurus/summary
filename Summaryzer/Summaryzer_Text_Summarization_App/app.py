@@ -1,25 +1,28 @@
 from __future__ import unicode_literals
 from flask import Flask,render_template,url_for,request
-
+import spacy
 from spacy_summarization import text_summarizer
 from gensim.summarization import summarize
+import nltk_summarization
 from nltk_summarization import nltk_summarizer
 import time
-import spacy
-nlp = spacy.load('en')
+
+import en_core_web_sm
+#nlp = spacy.load('en')
+nlp = spacy.load('en_core_web_sm')
 app = Flask(__name__)
 
 # Web Scraping Pkg
 from bs4 import BeautifulSoup
-# from urllib.request import urlopen
-from urllib import urlopen
+from urllib.request import urlopen
+#from urllib import urlopen
 
 # Sumy Pkg
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
 
-# Sumy 
+# Sumy
 def sumy_summary(docx):
 	parser = PlaintextParser.from_string(docx,Tokenizer("english"))
 	lex_summarizer = LexRankSummarizer()
@@ -94,7 +97,7 @@ def comparer():
 		summary_reading_time_nltk = readingTime(final_summary_nltk)
 		# Sumy
 		final_summary_sumy = sumy_summary(rawtext)
-		summary_reading_time_sumy = readingTime(final_summary_sumy) 
+		summary_reading_time_sumy = readingTime(final_summary_sumy)
 
 		end = time.time()
 		final_time = end-start
