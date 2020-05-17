@@ -3,6 +3,10 @@
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
+header class{
+  "card-panel teal lighten-2" > This is a card panel with a teal lighten-2 class
+} !important
+
 .materialize-red {
   background-color: #e51c23 !important;
 }
