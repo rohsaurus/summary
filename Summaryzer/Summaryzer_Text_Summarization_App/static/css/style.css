@@ -6,7 +6,16 @@
  * Made By MaterializeCSS.com
  */
 
-
+header class{
+  "card-panel teal lighten-2" > This is a card panel with a teal lighten-2 class
+}
+  .ilike-blue-container {
+    @extend .blue, .lighten-4;
+  }
+  body {
+    background-color: #00b0ff;
+    color: #00b0ff;
+  }
 nav ul a,
 nav .brand-logo {
   color: #00b0ff;
