@@ -9,6 +9,11 @@
 header class{
   "card-panel teal lighten-2" > This is a card panel with a teal lighten-2 class
 }
+.Blackbaronthetop {
+            background-color: teal; !important;
+            fill-opacity: 0%;
+            color: lightblue;
+        }
   .ilike-blue-container {
     @extend .blue, .lighten-4;
   }
