@@ -8537,7 +8537,7 @@ input[type=range]::-ms-thumb {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: #00b0ff;
 }
 
 .tap-target-wave::before {
@@ -8722,7 +8722,7 @@ input[type=range]::-ms-thumb {
   -webkit-flex: 1 auto;
       -ms-flex: 1 auto;
           flex: 1 auto;
-  background-color: #26a69a;
+  background-color: #00b0ff;
   color: #fff;
   padding: 20px 22px;
   font-weight: 500;
